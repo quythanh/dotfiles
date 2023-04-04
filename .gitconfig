@@ -1,3 +1,5 @@
 [user]
 	email = quythanh.dev@gmail.com
 	name = quythanh
+[safe]
+	directory = /home/quythanh/.dotfiles
