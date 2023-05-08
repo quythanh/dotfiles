@@ -1,22 +1,5 @@
--- import lspconfig plugin safely
-local lspconfig_status, lspconfig = pcall(require, "lspconfig")
-if not lspconfig_status then
-	return
-end
-
--- import cmp-nvim-lsp plugin safely
-local cmp_nvim_lsp_status, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
-if not cmp_nvim_lsp_status then
-	return
-end
-
--- import typescript plugin safely
-local typescript_setup, typescript = pcall(require, "typescript")
-if not typescript_setup then
-	return
-end
-
-local map = vim.keymap.set -- for conciseness
+local lspconfig = require("lspconfig")
+local map = vim.keymap.set
 
 -- enable keybinds only for when lsp server available
 local on_attach = function(client, bufnr)
@@ -46,11 +29,12 @@ local on_attach = function(client, bufnr)
 	end
 end
 
--- used to enable autocompletion (assign to every lsp server config)
-local capabilities = cmp_nvim_lsp.default_capabilities()
+local default_language_setup = {
+	capabilities = require("cmp_nvim_lsp").default_capabilities(), -- used to enable autocompletion (assign to every lsp server config)
+	on_attach = on_attach,
+}
 
 -- Change the Diagnostic symbols in the sign column (gutter)
--- (not in youtube nvim video)
 local signs = { Error = " ", Warn = " ", Hint = "ﴞ ", Info = " " }
 for type, icon in pairs(signs) do
 	local hl = "DiagnosticSign" .. type
@@ -58,22 +42,36 @@ for type, icon in pairs(signs) do
 end
 
 -- configure typescript server with plugin
-typescript.setup({
-	server = {
-		capabilities = capabilities,
-		on_attach = on_attach,
-	},
+require("typescript").setup({
+	server = default_language_setup,
 })
 
--- configure css server
-lspconfig["cssmodules_ls"].setup({
-	capabilities = capabilities,
+lspconfig.cssmodules_ls.setup(default_language_setup)
+-- lspconfig.emmet_ls.setup(default_language_setup)
+lspconfig.tsserver.setup({
 	on_attach = on_attach,
+	capabilities = capabilities,
 })
+lspconfig.clangd.setup({})
 
 -- configure emmet language server
 lspconfig["emmet_ls"].setup({
 	capabilities = capabilities,
 	on_attach = on_attach,
 	filetypes = { "html", "typescriptreact", "javascriptreact", "css", "sass", "scss", "less" },
+})
+
+-- rust
+lspconfig.rust_analyzer.setup({
+	on_attach = on_attach,
+	capabilities = capabilities,
+	filetypes = { "rust" },
+	root_dir = lspconfig.util.root_pattern("Cargo.toml"),
+	settings = {
+		["rust-analyzer"] = {
+			cargo = {
+				allFeatures = true,
+			},
+		},
+	},
 })

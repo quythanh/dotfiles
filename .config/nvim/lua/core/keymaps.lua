@@ -6,6 +6,13 @@ local options = { silent = true } -- hide the command in status bar
 -- general
 map("i", "jk", "<ESC>")
 
+-- double line
+map("n", "<C-d>", "Vyp")
+map("i", "<C-d>", "<ESC>Vypi")
+
+-- close tab
+map("n", "<C-M-w>", ":bd<cr>")
+
 -- nvim-tree
 map("n", "<leader>e", ":NvimTreeToggle<CR>", options)
 

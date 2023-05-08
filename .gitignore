@@ -1,0 +1,5 @@
+wakatime
+.config/microsoft-edge-dev
+.config/microsoft-edge-dev/**/*
+.config/xfce4
+.config/xfce4/**/*

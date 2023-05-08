@@ -15,20 +15,33 @@ local packer_bootstrap = ensure_packer() -- true if packer was just installed
 vim.cmd([[ 
     augroup packer_user_config
         autocmd!
-        autocmd BufWritePost plugins-setup.lua source <afile> | PackerSync
+        autocmd BufWritePost plugins.lua source <afile> | PackerSync
     augroup end
 ]])
 
--- import packer safely
-local status, packer = pcall(require, "packer")
-if not status then
-	return
+if packer_bootstrap then
+	print("===================================")
+	print("    Plugins are being installed")
+	print("    Wait until Packer completes")
+	print("    Then restart nvim")
+	print("===================================")
 end
 
 -- add list of plugins to install
-return packer.startup(function(use)
+return require("packer").startup(function(use)
 	-- add list of plugins to install
-	use("wbthomason/packer.nvim")
+	use("wbthomason/packer.nvim") -- package manager
+
+	-- configuring lsp servers
+	use({
+		"neovim/nvim-lspconfig", -- easily configure language servers
+		requires = {
+			"williamboman/mason.nvim", -- in charge of managing lsp servers, linters & formatters
+			"williamboman/mason-lspconfig.nvim", -- bridges gap b/w mason & lspconfig
+			"j-hui/fidget.nvim", -- status update for lsp
+		},
+	})
+
 	use("joshdick/onedark.vim") -- theme
 	use("lukas-reineke/indent-blankline.nvim") -- indent line
 	use("nvim-tree/nvim-tree.lua") -- file explorer
@@ -48,38 +61,28 @@ return packer.startup(function(use)
 	use({ "nvim-telescope/telescope.nvim", branch = "0.1.x" }) -- fuzzy finder
 	use({ "nvim-telescope/telescope-ui-select.nvim" }) -- for showing lsp code actions
 
-	-- autocompletion
+	-- autocompletion, snippets
 	use("hrsh7th/nvim-cmp") -- completion plugin
 	use("hrsh7th/cmp-buffer") -- source for text in buffer
 	use("hrsh7th/cmp-path") -- source for file system paths
-
-	-- snippets
+	use("hrsh7th/cmp-nvim-lsp") -- for autocompletion
 	use("L3MON4D3/LuaSnip") -- snippet engine
 	use("saadparwaiz1/cmp_luasnip") -- for autocompletion
 	use("rafamadriz/friendly-snippets") -- useful snippets
+	use("jose-elias-alvarez/typescript.nvim") -- additional functionality for typescript server (e.g. rename file & update imports)
+	use("onsails/lspkind.nvim") -- vs-code like icons for autocompletion
 
 	-- treesitter
-	use({
+	use({ -- highlight, edit, and navigate code
 		"nvim-treesitter/nvim-treesitter",
 		run = function()
-			local ts_update = require("nvim-treesitter.install").update({ with_sync = true })
-			ts_update()
+			pcall(require("nvim-treesitter.install").update({ with_sync = true }))
 		end,
 	})
 
 	-- auto closing
 	use("windwp/nvim-autopairs") -- autoclose parens, brackets, quotes, etc...
 	use({ "windwp/nvim-ts-autotag", after = "nvim-treesitter" }) -- autoclose tags
-
-	-- managing & installing lsp servers, linters & formatters
-	use("williamboman/mason.nvim") -- in charge of managing lsp servers, linters & formatters
-	use("williamboman/mason-lspconfig.nvim") -- bridges gap b/w mason & lspconfig
-
-	-- configuring lsp servers
-	use("neovim/nvim-lspconfig") -- easily configure language servers
-	use("hrsh7th/cmp-nvim-lsp") -- for autocompletion
-	use("jose-elias-alvarez/typescript.nvim") -- additional functionality for typescript server (e.g. rename file & update imports)
-	use("onsails/lspkind.nvim") -- vs-code like icons for autocompletion
 
 	-- formatting & linting
 	use("jose-elias-alvarez/null-ls.nvim") -- configure formatters & linters
@@ -96,6 +99,14 @@ return packer.startup(function(use)
 
 	-- emmet
 	use("mattn/emmet-vim")
+
+	use({
+		"rust-lang/rust.vim",
+		ft = "rust",
+		init = function()
+			vim.g.rustfmt_autosave = 1
+		end,
+	})
 
 	if packer_bootstrap then
 		require("packer").sync()

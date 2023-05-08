@@ -23,5 +23,5 @@ opt.clipboard:append("unnamedplus")
 opt.iskeyword:append("-")
 
 for k, v in pairs(options) do
-	vim.opt[k] = v
+	opt[k] = v
 end
