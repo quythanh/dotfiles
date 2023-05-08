@@ -1,6 +1,18 @@
-[submodule ".tmux/plugins/tpm"]
-	path = .tmux/plugins/tpm
+[submodule ".config/tmux/plugins/tpm"]
+	path = .config/tmux/plugins/tpm
 	url = https://github.com/tmux-plugins/tpm.git
+[submodule ".config/tmux/plugins/tmux"]
+	path = .config/tmux/plugins/tmux
+	url = https://github.com/quythanh/tmux.git
+[submodule ".config/tmux/plugins/tmux-continuum"]
+	path = .config/tmux/plugins/tmux-continuum
+	url = https://github.com/tmux-plugins/tmux-continuum.gitt
+[submodule ".config/tmux/plugins/tmux-resurrect"]
+	path = .config/tmux/plugins/tmux-resurrect
+	url = https://github.com/tmux-plugins/tmux-resurrect.git
+[submodule ".config/tmux/plugins/tmux-sensible"]
+	path = .config/tmux/plugins/tmux-sensible
+	url = https://github.com/tmux-plugins/tmux-sensible.git
 [submodule ".oh-my-zsh"]
 	path = .oh-my-zsh
 	url = https://github.com/ohmyzsh/ohmyzsh.git
