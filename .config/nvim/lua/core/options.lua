@@ -19,7 +19,18 @@ local options = {
 }
 
 -- general
-opt.clipboard:append("unnamedplus")
+--opt.clipboard:append("unnamedplus")
+opt.clipboard = {
+	name = "xclip-custom",
+	copy = {
+		["+"] = "xclip -quiet -i -selection clipboard",
+		["*"] = "xclip -quiet -i -selection clipboard",
+	},
+	paste = {
+		["+"] = "xclip -o -selection clipboard",
+		["*"] = "xclip -o -selection primary",
+	},
+}
 opt.iskeyword:append("-")
 
 for k, v in pairs(options) do

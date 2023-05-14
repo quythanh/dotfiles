@@ -17,6 +17,7 @@ require("mason-lspconfig").setup({
 		"clangd", -- c/c++
 		"jdtls", -- java
 		"rust_analyzer", -- rust
+		"pyright", -- python
 	},
 	-- auto-install configured servers (with lspconfig)
 	automatic_installation = true, -- not the same as ensure_installed

@@ -75,3 +75,22 @@ lspconfig.rust_analyzer.setup({
 		},
 	},
 })
+
+-- python
+lspconfig.pyright.setup({
+	on_attach = on_attach,
+	capabilities = capabilities,
+	filetypes = { "python" },
+	root_dir = lspconfig.util.root_pattern("requirements.txt"),
+	settings = {
+		pyright = {
+			analysis = {
+				autoImportCompletions = true,
+				autoSearchPaths = true,
+				diagnosticMode = "workspace",
+				useLibraryCodeForTypes = true,
+			},
+			disableOrganizeImports = false,
+		},
+	},
+})
