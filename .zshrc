@@ -33,6 +33,7 @@ alias lsa="ls -la"
 alias vi="nvim"
 alias astah="astah-uml -nojvchk"
 alias msedge-dev="microsoft-edge-dev -enable-features=UseOzonePlatform -ozone-platform=wayland"
+alias cava="TERM=st-256color cava"
 
 source $ZSH/oh-my-zsh.sh
 source $ZSH/custom/themes/powerlevel10k/powerlevel10k.zsh-theme
