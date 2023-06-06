@@ -6,6 +6,21 @@ return {
 		{ "nvim-telescope/telescope-fzf-native.nvim", build = "make", cond = vim.fn.executable("make") == 1 }, -- dependency for better sorting performance
 		{ "nvim-telescope/telescope-ui-select.nvim" }, -- for showing lsp code actions
 	},
+	keys = {
+		{
+			"<leader>ff",
+			"<cmd>Telescope find_files<cr>",
+			desc = "Find files within current working directory, respect .gitignore",
+		},
+		{ "<leader>fs", "<cmd>Telescope live_grep<cr>", desc = "Find string in current working directory as you type" },
+		{
+			"<leader>fc",
+			"<cmd>Telescope grep_string<cr>",
+			desc = "Find string under cursor in current working directory",
+		},
+		{ "<leader>fb", "<cmd>Telescope buffers<cr>", desc = "List open buffers in current neovim instance" },
+		{ "<leader>fh", "<cmd>Telescope help_tags<cr>", desc = "List available help tags" },
+	},
 	opts = function()
 		local actions = require("telescope.actions")
 		local themes = require("telescope.themes")

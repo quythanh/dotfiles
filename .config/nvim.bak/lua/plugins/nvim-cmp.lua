@@ -4,8 +4,7 @@ return {
 		dependencies = {
 			"rafamadriz/friendly-snippets", -- useful snippets
 			config = function()
-				-- load vs-code like snippets from plugins (e.g. friendly-snippets)
-				require("luasnip.loaders.from_vscode").lazy_load()
+				require("luasnip.loaders.from_vscode").lazy_load() -- load vs-code like snippets from plugins (e.g. friendly-snippets)
 			end,
 		},
 		opts = {

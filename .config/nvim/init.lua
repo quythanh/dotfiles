@@ -1,9 +1,3 @@
--- require("neovide")
-require("core.options")
-require("core.keymaps")
-require("core.colorscheme")
-require("lazy-load")
-require("plugins.lsp.mason")
-require("plugins.lsp.mason-lspconfig")
-require("plugins.lsp.null-ls")
-vim.cmd("source ~/.config/nvim/lua/core/term.vim")
+-- bootstrap lazy.nvim, LazyVim and your plugins
+require("config.lazy")
+require("neovide")
