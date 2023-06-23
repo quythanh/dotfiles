@@ -39,3 +39,5 @@ opt.iskeyword:append("-")
 for k, v in pairs(options) do
     opt[k] = v
 end
+
+vim.o.guifont = "JetBrainsMono Nerd Font:h10"

@@ -28,12 +28,18 @@ export WAKATIME_HOME="$HOME/.dotfiles/wakatime"
 # create zcompdump file in this location
 export ZSH_COMPDUMP=$ZSH/cache/.zcompdump-$HOST
 export HISTFILE=$ZSH/cache/.zsh_history
+# ibus bamboo
+export GTK_IM_MODULE=ibus
+export XMODIFIERS=@im=ibus
+export QT_IM_MODULE=ibus
+pidof ibus-daemon > /dev/null || ibus-daemon -drx
 
 alias lsa="ls -la"
-alias vi="nvim"
+#alias vi="nvim"
 alias astah="astah-uml -nojvchk"
-alias msedge-dev="microsoft-edge-dev -enable-features=UseOzonePlatform -ozone-platform=wayland"
-alias cava="TERM=st-256color cava"
+#alias msedge-dev="microsoft-edge-dev -enable-features=UseOzonePlatform -ozone-platform=wayland"
+#alias cava="TERM=st-256color cava"
+alias neovide="WINIT_UNIX_BACKEND=x11 neovide"
 
 source $ZSH/oh-my-zsh.sh
 source $ZSH/custom/themes/powerlevel10k/powerlevel10k.zsh-theme

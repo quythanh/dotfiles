@@ -1,0 +1,7 @@
+{
+    "custom/power_btn": {
+        "format": "",
+        "on-click": "sh -c 'wlogout --protocol layer-shell' & disown",
+        "tooltip": false
+    }
+}

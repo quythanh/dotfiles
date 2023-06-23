@@ -1,0 +1,19 @@
+{
+    "modules-right": [
+        "battery",
+        "backlight",
+        "pulseaudio",
+        "pulseaudio#microphone",
+        "tray",
+        "custom/key_binding"
+    ],
+    "include": [
+        "~/.config/waybar/conf/modules/right/battery.jsonc",
+
+        "~/.config/waybar/conf/modules/right/backlight.jsonc",
+        "~/.config/waybar/conf/modules/right/pulseaudio.jsonc",
+        "~/.config/waybar/conf/modules/right/microphone.jsonc",
+
+        "~/.config/waybar/conf/modules/right/key_binding.jsonc"
+    ]
+}

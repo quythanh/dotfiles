@@ -1,0 +1,10 @@
+{
+    "backlight": {
+        "device": "intel_backlight",
+        "format": "{icon} {percent}%",
+        "format-icons": ["󰃞", "󰃟", "󰃠"],
+        "on-scroll-up": "~/.config/HyprV/waybar/scripts/brightness --inc",
+        "on-scroll-down": "~/.config/HyprV/waybar/scripts/brightness --dec",
+        "min-length": 6
+    }
+}

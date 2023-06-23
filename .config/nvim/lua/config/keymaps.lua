@@ -7,8 +7,8 @@ local map = vim.keymap.set
 map("i", "jk", "<ESC>")
 
 -- double line
-map("n", "<C-d>", "Vyp")
-map("i", "<C-d>", "<ESC>Vypi")
+map("n", "<C-M-j>", "Vyp")
+map("i", "<C-M-j>", "<ESC>Vypi")
 
 -- close tab
 map("n", "<M-w>", ":bd<cr>")

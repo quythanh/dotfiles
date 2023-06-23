@@ -1,0 +1,13 @@
+#!/bin/bash
+
+IS_NOTIFY=false
+
+capacity=$(cat "/sys/class/power_supply/BAT1/capacity")
+if [[ $capacity -lt 3 ]]
+then
+    shutdown now
+elif [[ $capacity -lt 20 ]]
+then
+    notify-send LowBattery
+else :
+fi

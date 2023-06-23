@@ -1,0 +1,61 @@
+#!/bin/bash
+. ~/.config/HyprV/hyprv.conf
+
+update_theme() {
+	#set the xfce and GTK theme
+	xfconf-query -c xsettings -p /Net/IconThemeName -s "Adwaita$SWITCHTO"
+	gsettings set org.gnome.desktop.interface icon-theme "Adwaita$SWITCHTO"
+
+	xfconf-query -c xsettings -p /Net/ThemeName -s "Adwaita$SWITCHTO"
+	gsettings set org.gnome.desktop.interface gtk-theme "Adwaita$SWITCHTO"
+}
+
+restart_waybar() {
+	pkill waybar
+	waybar &
+}
+
+set_current_background() {
+	if [[ ! -z "$SET_BG" ]]; then
+		#set the current background
+		swww img ~/.config/HyprV/backgrounds/$VER'-background-dark.jpg'
+	else
+		swww img $SET_BG
+	fi
+}
+
+switch_version() {
+	#set the background
+	if [ -z $SET_BG ]; then
+		swww img ~/.config/HyprV/backgrounds/$VERTO'background'$SWITCHTO.jpg --transition-fps 60 --transition-type wipe --transition-duration 2
+	else
+		swww img $SET_BG --transition-fps 60 --transition-type wipe --transition-duration 2
+	fi
+
+	#update the sddm image
+	cp -f ~/.config/HyprV/backgrounds/$VERTO'background'$SWITCHTO.jpg /usr/share/sddm/themes/sdt/wallpaper.jpg
+
+}
+
+if [[ "$1" == "restart" ]]; then
+	restart_waybar
+elif [[ "$1" == "setbg" ]]; then
+	set_current_background
+	update_theme
+	restart_waybar
+fi
+
+TOOLTIP="Default Keybinds\n\n\
+󰘳 + Q = Start Kitty\n\
+󰘳 + F4 = Close Window\n\
+󰘳 + L = Lock Screen\n\
+󰘳 + M = Logout menu\n\
+󰘳 + E = File Manager\n\
+󰘳 + V = Toggle Float\n\
+󰘳 + S = Screenshot\n\
+󰘳 + T = Switch HyprV version\n\
+󰘳 + F = Toggle Fullscreen\n\
+󰘳 + SPACE = App Launcher\n\
+ALT + V = Open clipboard manager"
+
+echo '{"tooltip": "'$TOOLTIP'"}'
