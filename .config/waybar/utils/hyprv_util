@@ -1,5 +1,6 @@
 #!/bin/bash
-. ~/.config/HyprV/hyprv.conf
+. ~/.config/waybar/utils/hyprv.conf
+. ~/.config/.resources/variables.conf
 
 update_theme() {
 	#set the xfce and GTK theme
@@ -16,46 +17,33 @@ restart_waybar() {
 }
 
 set_current_background() {
-	if [[ ! -z "$SET_BG" ]]; then
+	if [[ ! -z "$BG_PATH" ]]; then
 		#set the current background
-		swww img ~/.config/HyprV/backgrounds/$VER'-background-dark.jpg'
+		swww img ~/.dotfiles/.config/.resources/images/Kurumi_bg.jpg
 	else
-		swww img $SET_BG
+		swww img $BG_PATH
 	fi
-}
-
-switch_version() {
-	#set the background
-	if [ -z $SET_BG ]; then
-		swww img ~/.config/HyprV/backgrounds/$VERTO'background'$SWITCHTO.jpg --transition-fps 60 --transition-type wipe --transition-duration 2
-	else
-		swww img $SET_BG --transition-fps 60 --transition-type wipe --transition-duration 2
-	fi
-
-	#update the sddm image
-	cp -f ~/.config/HyprV/backgrounds/$VERTO'background'$SWITCHTO.jpg /usr/share/sddm/themes/sdt/wallpaper.jpg
-
 }
 
 if [[ "$1" == "restart" ]]; then
 	restart_waybar
 elif [[ "$1" == "setbg" ]]; then
-	set_current_background
+	$CONFIG_ROOT/.resources/scripts/set-bg
 	update_theme
 	restart_waybar
 fi
 
 TOOLTIP="Default Keybinds\n\n\
-󰘳 + Q = Start Kitty\n\
-󰘳 + F4 = Close Window\n\
-󰘳 + L = Lock Screen\n\
-󰘳 + M = Logout menu\n\
-󰘳 + E = File Manager\n\
-󰘳 + V = Toggle Float\n\
-󰘳 + S = Screenshot\n\
-󰘳 + T = Switch HyprV version\n\
+󰘳 + A = Toggle Maximize\n\
 󰘳 + F = Toggle Fullscreen\n\
-󰘳 + SPACE = App Launcher\n\
+󰘳 + V = Toggle Float\n\
+󰘳 + T = Toggle Split\n\\n\
+󰘳 + E = File Manager\n\
+󰘳 + Q = Start Kitty\n\
+󰘳 + F4 = Close Window\n\n\
+󰘳 + M = Logout menu\n\
+󰘳 + S = Screenshot\n\
+󰘳 + SPACE = App Launcher (wofi)\n\
 ALT + V = Open clipboard manager"
 
 echo '{"tooltip": "'$TOOLTIP'"}'

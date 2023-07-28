@@ -1,12 +1,12 @@
+# Path to your oh-my-zsh installation.
+export ZSH="$HOME/.dotfiles/.oh-my-zsh"
+
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
-
-# Path to your oh-my-zsh installation.
-export ZSH="$HOME/.dotfiles/.oh-my-zsh"
 
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 ZSH_THEME="powerlevel10k/powerlevel10k"
@@ -19,27 +19,19 @@ plugins=(
     zsh-syntax-highlighting
 )
 
+# Just add this for my layout 60% keyboard 
+bindkey "^N" autosuggest-accept
+
 # ====================================================
 # User configuration
 # ====================================================
 export LANG=en_US.UTF-8
 export ARCHFLAGS="-arch x86_64"
-export WAKATIME_HOME="$HOME/.dotfiles/wakatime"
 # create zcompdump file in this location
 export ZSH_COMPDUMP=$ZSH/cache/.zcompdump-$HOST
 export HISTFILE=$ZSH/cache/.zsh_history
-# ibus bamboo
-export GTK_IM_MODULE=ibus
-export XMODIFIERS=@im=ibus
-export QT_IM_MODULE=ibus
-pidof ibus-daemon > /dev/null || ibus-daemon -drx
 
-alias lsa="ls -la"
-#alias vi="nvim"
-alias astah="astah-uml -nojvchk"
-#alias msedge-dev="microsoft-edge-dev -enable-features=UseOzonePlatform -ozone-platform=wayland"
-#alias cava="TERM=st-256color cava"
-alias neovide="WINIT_UNIX_BACKEND=x11 neovide"
+source ~/.dotfiles/.config/zsh/alias.conf
 
 source $ZSH/oh-my-zsh.sh
 source $ZSH/custom/themes/powerlevel10k/powerlevel10k.zsh-theme

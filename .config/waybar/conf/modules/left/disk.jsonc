@@ -5,6 +5,6 @@
         "path": "/",
         "tooltip": true,
         "tooltip-format": "HDD - {used} used out of {total} on {path} ({percentage_used}%)",
-        "on-click": "kitty --start-as=fullscreen --title btop sh -c 'btop'"
+        "on-click": "alacritty -o 'window.startup_mode=Fullscreen' -T btop -e sh -c 'btop'"
     }
 }

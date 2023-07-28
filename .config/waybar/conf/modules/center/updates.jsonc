@@ -1,9 +1,12 @@
+// https://github.com/Alexays/Waybar/issues/1960#issuecomment-1399908070
 {
     "custom/updates": {
-        "format": "{}",
-        "exec": "~/.config/HyprV/waybar/scripts/update-sys",
-        "on-click": "~/.config/HyprV/waybar/scripts/update-sys update",
-        "interval": 300,
-        "tooltip": true
+        "interval": "once",
+        "exec": "~/.config/waybar/utils/update-show.py",
+        "on-click": "alacritty -T update-sys -e sh -c 'yay -Syu'; pkill -SIGRTMIN+10 waybar",
+        "tooltip": true,
+        "signal": 10,
+        "exec-on-event": false,
+        "return-type": "json"
     }
 }

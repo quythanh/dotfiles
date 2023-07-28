@@ -1,6 +1,7 @@
 ./*
 
 !.gitignore
+!.resources
 !cava
 !hypr
 !kitty

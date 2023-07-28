@@ -1,0 +1,8 @@
+#!/bin/bash
+. ~/.dotfiles/.config/.resources/variables.conf
+
+xfconf-query -c xsettings -p /Net/IconThemeName -s "candy-icons"
+gsettings set org.gnome.desktop.interface icon-theme "candy-icons"
+
+xfconf-query -c xsettings -p /Net/ThemeName -s "Adwaita"
+gsettings set org.gnome.desktop.interface gtk-theme "Adwaita"
