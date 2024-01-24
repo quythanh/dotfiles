@@ -76,6 +76,9 @@ mode = waves
 ; method = portaudio
 ; source = auto
 
+method = pipewire
+source = auto
+
 
 [output]
 

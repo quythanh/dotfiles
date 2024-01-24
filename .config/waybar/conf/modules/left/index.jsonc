@@ -1,7 +1,7 @@
 {
     "modules-left": [
         "custom/launch_wofi",
-        "wlr/workspaces",
+        "hyprland/workspaces",
         "cpu",
         "memory",
         "disk",
@@ -13,6 +13,8 @@
 
         "~/.config/waybar/conf/modules/left/cpu.jsonc",
         "~/.config/waybar/conf/modules/left/memory.jsonc",
-        "~/.config/waybar/conf/modules/left/disk.jsonc"
+        "~/.config/waybar/conf/modules/left/disk.jsonc",
+
+        "~/.config/waybar/conf/modules/left/window.jsonc"
     ]
 }

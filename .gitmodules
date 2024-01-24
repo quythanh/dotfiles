@@ -16,3 +16,6 @@
 [submodule ".oh-my-zsh"]
 	path = .oh-my-zsh
 	url = https://github.com/ohmyzsh/ohmyzsh.git
+[submodule ".config/waybar/utils/caway"]
+	path = .config/waybar/utils/caway
+	url = https://github.com/PROxZIMA/caway

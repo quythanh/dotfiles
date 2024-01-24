@@ -60,7 +60,7 @@ return {
                 },
             },
             tsserver = {},
-            clangd = {},
+            -- clangd = {},
         },
         -- you can do any additional lsp server setup here
         -- return true if you don't want this server to be setup with lspconfig
@@ -111,9 +111,9 @@ return {
     config = function(_, opts)
         local Util = require("lazyvim.util")
         -- setup autoformat
-        require("lazyvim.plugins.lsp.format").setup(opts)
+        Util.format.setup(opts)
         -- setup formatting and keymaps
-        Util.on_attach(function(client, buffer)
+        Util.lsp.on_attach(function(client, buffer)
             require("lazyvim.plugins.lsp.keymaps").on_attach(client, buffer)
         end)
 
@@ -187,10 +187,10 @@ return {
             mlsp.setup({ ensure_installed = ensure_installed, handlers = { setup } })
         end
 
-        if Util.lsp_get_config("denols") and Util.lsp_get_config("tsserver") then
+        if Util.lsp.get_config("denols") and Util.lsp.get_config("tsserver") then
             local is_deno = require("lspconfig.util").root_pattern("deno.json", "deno.jsonc")
-            Util.lsp_disable("tsserver", is_deno)
-            Util.lsp_disable("denols", function(root_dir)
+            Util.lsp.disable("tsserver", is_deno)
+            Util.lsp.disable("denols", function(root_dir)
                 return not is_deno(root_dir)
             end)
         end

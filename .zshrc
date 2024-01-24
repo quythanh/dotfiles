@@ -15,11 +15,9 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 plugins=(
     git
-    zsh-autosuggestions 
-    zsh-syntax-highlighting
 )
 
-# Just add this for my layout 60% keyboard 
+# Just add this for my layout 60% keyboard
 bindkey "^N" autosuggest-accept
 
 # ====================================================
@@ -29,9 +27,10 @@ export LANG=en_US.UTF-8
 export ARCHFLAGS="-arch x86_64"
 # create zcompdump file in this location
 export ZSH_COMPDUMP=$ZSH/cache/.zcompdump-$HOST
-export HISTFILE=$ZSH/cache/.zsh_history
+HISTFILE=$ZSH/cache/.zsh_history
 
 source ~/.dotfiles/.config/zsh/alias.conf
+source ~/.dotfiles/.config/zsh/export_env.conf
 
 source $ZSH/oh-my-zsh.sh
 source $ZSH/custom/themes/powerlevel10k/powerlevel10k.zsh-theme
@@ -42,3 +41,7 @@ clear
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 source ~/.dotfiles/.p10k.zsh
+
+# Syntax highlighting
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh

@@ -1,5 +1,6 @@
 {
     "modules-right": [
+        "custom/music",
         "battery",
         "backlight",
         "pulseaudio",
@@ -8,6 +9,8 @@
         "custom/key_binding"
     ],
     "include": [
+        "~/.config/waybar/conf/modules/right/caway.jsonc",
+
         "~/.config/waybar/conf/modules/right/battery.jsonc",
 
         "~/.config/waybar/conf/modules/right/backlight.jsonc",
