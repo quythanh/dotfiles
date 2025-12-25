@@ -1,0 +1,14 @@
+{
+    "layer": "top",
+    "position": "right", // [top,left,right,bottom]
+    "mod": "dock",
+    "exclusive": true,
+    "passthrough": false,
+    "gtk-layer-shell": true,
+    "include": "~/.config/waybar/conf/index.jsonc",
+
+    "tray": {
+        "icon-size": 18,
+        "spacing": 10
+    }
+}

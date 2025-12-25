@@ -1,9 +1,0 @@
-#!/bin/bash
-. ~/.dotfiles/.config/.resources/variables.conf
-
-if [[ ! -z "$BG_PATH" ]]; then
-	#set the current background
-	swww img $CONFIG_ROOT/.resources/images/Kurumi_bg.jpg
-else
-	swww img $BG_PATH
-fi

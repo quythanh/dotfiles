@@ -1,7 +1,0 @@
-{
-    "custom/launch_wofi": {
-        "format": "",
-        "on-click": "sleep 0.1s; sh -c 'wofi' & disown",
-        "tooltip": false
-    }
-}

@@ -1,0 +1,6 @@
+#!/bin/bash
+
+xfconf-query -c xsettings -p /Net/ThemeName -s "Adwaita"
+gsettings set org.gnome.desktop.interface gtk-theme "Adwaita"
+
+echo "$(date) - GTK theme set to Adwaita"

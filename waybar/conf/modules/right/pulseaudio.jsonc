@@ -1,0 +1,20 @@
+{
+    "pulseaudio": {
+        "format": "{icon} {volume}%",
+        "format-muted": "",
+        "on-click": "~/.dotfiles/waybar/utils/volume --toggle",
+        "on-click-right": "pavucontrol",
+        "on-scroll-up": "~/.dotfiles/waybar/utils/volume --inc",
+        "on-scroll-down": "~/.dotfiles/waybar/utils/volume --dec",
+        "scroll-step": 5,
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["", "", ""]
+        }
+    }
+}

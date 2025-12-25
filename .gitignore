@@ -1,15 +1,1 @@
-/*
-
-!/.config
-!/.oh-my-zsh
-
-/.config/*
-!/.config/cava
-!/.config/kitty
-!/.config/mako
-!/.config/neofetch
-!/.config/nvim
-!/.config/swaylock
-!/.config/waybar
-!/.config/wlogout
-!/.config/wofi
+.venv

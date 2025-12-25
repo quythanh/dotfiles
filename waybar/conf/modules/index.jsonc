@@ -1,0 +1,7 @@
+{
+    "include": [
+        "~/.config/waybar/conf/modules/left/index.jsonc",
+        "~/.config/waybar/conf/modules/center/index.jsonc",
+        "~/.config/waybar/conf/modules/right/index.jsonc"
+    ]
+}

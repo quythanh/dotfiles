@@ -1,0 +1,14 @@
+{
+    "modules-center": [
+        // "custom/lock_screen",
+        "custom/updates",
+        "clock"
+        // "custom/power_btn"
+    ],
+    "include": [
+        // "~/.config/waybar/conf/modules/center/lock_screen.jsonc",
+        "~/.config/waybar/conf/modules/center/updates.jsonc",
+        "~/.config/waybar/conf/modules/center/clock.jsonc"
+        // "~/.config/waybar/conf/modules/center/power_btn.jsonc"
+    ]
+}

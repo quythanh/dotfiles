@@ -1,0 +1,5 @@
+#!/bin/bash
+
+gsettings set org.gnome.desktop.interface cursor-theme "MacOS"
+
+echo "$(date) - Cursor theme set to MacOS"

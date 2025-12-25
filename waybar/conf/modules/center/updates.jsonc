@@ -1,0 +1,12 @@
+// https://github.com/Alexays/Waybar/issues/1960#issuecomment-1399908070
+{
+    "custom/updates": {
+        "interval": "once",
+        "exec": "~/.config/waybar/utils/update-show.py",
+        "on-click": "kitty -T update-sys yay; pkill -SIGRTMIN+10 waybar",
+        "tooltip": true,
+        "signal": 10,
+        "exec-on-event": false,
+        "return-type": "json"
+    }
+}

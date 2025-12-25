@@ -1,0 +1,5 @@
+#!/bin/bash
+
+./cursor >> ~/.log/mythemes.log
+./icon >> ~/.log/mythemes.log
+./widget >> ~/.log/mythemes.log

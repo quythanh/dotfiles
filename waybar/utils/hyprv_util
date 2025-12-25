@@ -1,0 +1,19 @@
+#!/bin/bash
+. ~/.config/.resources/variables.conf
+
+TOOLTIP="Default Keybinds\n\n\
+󰘳 + A = Toggle Maximize\n\
+󰘳 + F = Toggle Fullscreen\n\
+󰘳 + V = Toggle Float\n\
+󰘳 + T = Toggle Split\n\\n\
+󰘳 + E = File Manager\n\
+󰘳 + Q = Start Kitty\n\
+ALT + C = Start Cava\n\
+󰘳 + SHIFT + W = Close Window\n\n\
+󰘳 + M = Logout menu\n\
+󰘳 + SHIFT + S = Screenshot\n\
+󰘳 + SPACE = App Launcher (wofi)\n\
+ALT + V = Open clipboard manager\n\
+ALT + P = Screenshot (Full screen)"
+
+echo '{"tooltip": "'$TOOLTIP'"}'

@@ -1,0 +1,10 @@
+{
+    "hyprland/window": {
+        "format": "{}",
+        // "rewrite": {
+        //     "(.*) - Chromium": "$1 󰊯 ",
+        //     "(.*) - YouTube(.*)": "󰗃  $1"
+        // },
+        "separate-outputs": true
+    }
+}

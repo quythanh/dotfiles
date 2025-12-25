@@ -1,0 +1,10 @@
+{
+    "custom/launch_wofi": {
+        "format": "",
+        // "on-click": "sleep 0.1s; sh -c 'wofi' & disown",
+        "on-click": "hyprlauncher",
+        "exec": "~/.config/waybar/utils/hyprv_util",
+        "return-type": "json",
+        "tooltip": true
+    }
+}

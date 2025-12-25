@@ -1,0 +1,83 @@
+* {
+  background-image: none;
+  font-size: 12pt;
+}
+
+window {
+  background-image: image(url("./blur.png"));
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+
+button {
+  color: #ffffff;
+  background-color: rgba(17, 17, 27, 0.8);
+  outline-style: none;
+  border: none;
+  border-width: 0px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 10%;
+  border-radius: 0px;
+  box-shadow: none;
+  text-shadow: 0px 0px 5px #000000;
+  animation: gradient_f 20s ease-in infinite;
+}
+
+button:focus {
+  background-color: rgba(201, 154, 216, 0.5);
+  background-size: 20%;
+}
+
+button:hover {
+  background-color: rgba(245, 194, 231, 0.5);
+  background-size: 25%;
+  border-radius: 20px;
+  animation: gradient_f 20s ease-in infinite;
+  transition: all 0.3s cubic-bezier(.55, 0.0, .28, 1.682);
+}
+
+button:hover#lock {
+  border-radius: 20px 20px 0px 20px;
+  margin: 15px 0px 0px 230px;
+}
+
+button:hover#shutdown {
+  border-radius: 20px 0px 20px 20px;
+  margin: 0px 0px 15px 230px;
+}
+
+button:hover#suspend {
+  border-radius: 20px 20px 20px 0px;
+  margin: 15px 230px 0px 0px;
+}
+
+button:hover#reboot {
+  border-radius: 0px 20px 20px 20px;
+  margin: 0px 230px 15px 0px;
+}
+
+#lock {
+  background-image: image(url("./icons/lock.png"));
+  border-radius: 20px 0px 0px 0px;
+  margin: 30px 0px 0px 270px;
+}
+
+#shutdown {
+  background-image: image(url("./icons/shutdown.png"));
+  border-radius: 0px 0px 0px 20px;
+  margin: 0px 0px 30px 270px;
+}
+
+#suspend {
+  background-image: image(url("./icons/suspend.png"));
+  border-radius: 0px 20px 0px 0px;
+  margin: 30px 270px 0px 0px;
+}
+
+#reboot {
+  background-image: image(url("./icons/reboot.png"));
+  border-radius: 0px 0px 20px 0px;
+  margin: 0px 270px 30px 0px;
+}

@@ -1,0 +1,7 @@
+{
+    "custom/lock_screen": {
+        "format": "",
+        "on-click": "sleep 0.1s; sh -c 'hyprlock' & disown",
+        "tooltip": false
+    }
+}
