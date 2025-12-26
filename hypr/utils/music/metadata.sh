@@ -7,7 +7,7 @@ if [[ -n "$artist" && -n "$title" ]]; then
   artist_spaced=$(echo " $artist" | sed "s/./& /g")
   title_spaced=$(echo "$title " | sed "s/./& /g")
 
-  echo "║  ${artist_spaced}  -  ${title_spaced}  ║"
+  echo "${title_spaced}"
 else
   commandecho "Nothing Playing"
 fi
