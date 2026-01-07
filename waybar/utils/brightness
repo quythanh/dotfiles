@@ -4,30 +4,30 @@ iDIR="$HOME/.dotfiles/mako/icons"
 
 # Get brightness
 get_backlight() {
-	LIGHT=$(printf "%.0f\n" $(brightnessctl i))
-	echo "${LIGHT}%"
+	brightness=$(brightnessctl g)
+	# Convert to percentage, rounded
+	echo $(((brightness * 100 + 60395 / 2) / 60395))
 }
 
 # Get icons
 get_icon() {
-	backlight="$(brightnessctl g)"
-	current="${backlight%%%}"
-	if [[ ("$current" -ge "0") && ("$current" -le "52") ]]; then
+	current=$(get_backlight)
+	if [[ ("$current" -ge "0") && ("$current" -le "20") ]]; then
 		echo "$iDIR/brightness-20.png"
-	elif [[ ("$current" -ge "52") && ("$current" -le "103") ]]; then
+	elif [[ ("$current" -ge "20") && ("$current" -le "40") ]]; then
 		echo "$iDIR/brightness-40.png"
-	elif [[ ("$current" -ge "103") && ("$current" -le "155") ]]; then
+	elif [[ ("$current" -ge "40") && ("$current" -le "60") ]]; then
 		echo "$iDIR/brightness-60.png"
-	elif [[ ("$current" -ge "155") && ("$current" -le "207") ]]; then
+	elif [[ ("$current" -ge "60") && ("$current" -le "80") ]]; then
 		echo "$iDIR/brightness-80.png"
-	elif [[ ("$current" -ge "180") && ("$current" -le "255") ]]; then
+	elif [[ ("$current" -ge "80") && ("$current" -le "100") ]]; then
 		echo "$iDIR/brightness-100.png"
 	fi
 }
 
 # Notify
 notify_user() {
-	notify-send -h string:x-canonical-private-synchronous:sys-notify -u low -i "$(get_icon)" "Brightness : $(brightnessctl g)"
+	notify-send -h string:x-canonical-private-synchronous:sys-notify -u low -i "$(get_icon)" "Brightness : $(get_backlight) %"
 }
 
 # Increase brightness
@@ -42,7 +42,7 @@ dec_backlight() {
 
 # Execute accordingly
 if [[ "$1" == "--get" ]]; then
-	brightnessctl g
+	get_backlight
 elif [[ "$1" == "--inc" ]]; then
 	inc_backlight
 elif [[ "$1" == "--dec" ]]; then
