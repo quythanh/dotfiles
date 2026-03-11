@@ -1,5 +1,5 @@
 # Load environment variables at top
-. $HOME/.dotfiles/zsh/export_env.sh
+. $HOME/.dotfiles/zsh/env.sh
 . $HOME/.dotfiles/zsh/alias.sh
 . $HOME/.dotfiles/zsh/keychain.sh
 . $HOME/.dotfiles/zsh/vim_mode.sh
