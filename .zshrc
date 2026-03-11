@@ -1,9 +1,3 @@
-# Path to your oh-my-zsh installation.
-export ZSH="$HOME/.dotfiles/.oh-my-zsh"
-
-# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="robbyrussell"
-
 # Standard plugins in $ZSH/plugins/
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 plugins=(
@@ -26,7 +20,3 @@ bindkey -M viins jk vi-cmd-mode
 # ----------------------------------------
 
 eval "$(zoxide init zsh)"
-
-# NOTE: DO NOT COMMIT THIS FILE WITH REAL API KEYS
-# gemini-cli
-export GEMINI_API_KEY="YOUR_GEMINI_API_KEY_HERE"

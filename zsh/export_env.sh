@@ -27,3 +27,7 @@ esac
 
 # Add .NET Core SDK tools
 export PATH="$PATH:/home/quythanh/.dotnet/tools"
+
+# NOTE: DO NOT COMMIT THIS FILE WITH REAL API KEYS
+# gemini-cli
+export GEMINI_API_KEY="YOUR_GEMINI_API_KEY_HERE"
